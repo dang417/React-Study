@@ -2,9 +2,9 @@
 
 
 
-![amazon-캡처.JPG](.\amazon-캡처.JPG)
+![amazon-캡처.JPG](amazon-캡처.JPG)
 
-![amazon-캡처2.JPG](C:\Users\zxsef\Desktop\React-Study\JB\amazon-캡처2.JPG)
+![amazon-캡처2.JPG](amazon-캡처2.JPG)
 
 
 
