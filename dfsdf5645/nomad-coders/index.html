@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- react-dom: react element들을 html body에 둘 수 있게함 -->
+  
+  <script>
+    const root = document.getElementById("root")
+    const span = React.createElement("span") // ""안에는 생성하고자 하는 html 태그와 같은 이름이어야 함
+    ReactDOM.render(span, root) // render = 사용자에게 보여준다
+
+    // 더 간단하게 하는 법
+    // span = React.createElement("span", { id: "cute-span", style: {color: "red"} }, "넣고자 하는 내용")
+    // 하면 body에 id, 내용 따로 안 지정해줘도 자동생성
+
+    // const btn = React.createElement("button", null, "click me")
+    // 아래와 같이 변경
+    const btn = React.createElement("button", {
+      onClick: () => console.log("i'm clicked"),
+      style: {
+        backgroundColor: "tomato",
+      }
+    },
+    "CLick me");
+    
+    const h3 = React.createElement("h3", {
+      onMouseEnter: () => console.log("mouse enter")
+      // 마우스가 해당 영역에 놓여있을 때
+    },
+    "Hello I'm a span");
+
+    const container = React.createElement("div", null, [span, btn, h3]) // 두 가지 한번에 넣기
+    ReactDOM.render(container, root)
+  </script>
+</html> 
