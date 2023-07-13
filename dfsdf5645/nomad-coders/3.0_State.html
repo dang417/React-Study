@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const root = document.getElementById("root");
+      let counter = 0;
+      // countUp 함수 정의
+      function countUp() {
+        counter = counter + 1;
+        // ReactDOM.createRoot(root).render(<Container />);
+        render();
+      }
+      
+      // title, button 함수 삭제 및 내용물만 Container 속으로
+
+      function render() {
+        ReactDOM.createRoot(root).render(<Container />);
+      }
+      
+
+      function Container() {
+        return (
+          <div>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={countUp}>Click me</button>
+          </div>
+        )
+      }
+      
+      // Container 처음 한번 렌더링 이후 업뎃되지 않음(리렌더링 안됨)
+      // countUp 함수 안에 아래 코드 넣어주면 매번 리렌더링
+      // ReactDOM.createRoot(root).render(<Container />);
+      // 이거보다 reRender 함수 만들어주는 게 더 간편
+      render();
+
+    </script>
+  </body>
+</html>
+
+
+
+<!--
+const root 대신 ..!
+const DOM = ReactDOM.createRoot(document.getElementById("root"))
+...
+function render() {
+  return (
+    DOM.render(<Container />)
+  )
+}
+-->
