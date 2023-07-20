@@ -10,19 +10,22 @@
       const root = document.getElementById("root");
       
       function App() {
-        const [counter, modifier] = React.useState(0); // 초기값 지정 가능
-         return (
+        // [state 변수명, 변경할 함수명]
+        const [counter, setCounter] = React.useState(0); // 초기값
+        const onClick = () => {
+          setCounter(counter + 1) // 리렌더링
+        }
+
+        // 사용자에게 보여지는
+        return (
           <div>
-            <h3>Total clicks: 0</h3>
-            <button>Click me</button>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={onClick}>Click me</button>
           </div>
         )
       }
       ReactDOM.createRoot(root).render(<App />);
 
-      // const food = [1, 2]
-      // const [use, name] = food
-      // 쓸 이름들로 지정
 
     </script>
   </body>
